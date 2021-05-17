@@ -16,24 +16,40 @@ function enterMassage(evt){
     massage.style.borderBottomRightRadius = '0px'
     massage.style.borderBottomLeftRadius = '12px'
     bot_content.appendChild(massage)
-    bot_input.value = ""
-        if(massage.indexOf("Помощь")){
+        if(massage.innerHTML == `1`){
             answerHelp++
             const answer = document.createElement('div')
             answer.innerHTML = `Задавайте вопрос и мы на него ответим!`
             answer.classList.add('bot-massage')
             bot_content.appendChild(answer)
-            
-        }else if(massage.indexOf("Ы")){
+            bot_input.value = ""
+
+            return
+
+        }else if(massage.innerHTML == `2`){
             answerHelp++
             const answer = document.createElement('div')
-            answer.innerHTML = `ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ`
+            answer.innerHTML = `Мы не поможем вам`
             answer.classList.add('bot-massage')
             bot_content.appendChild(answer)
+            bot_input.value = ""
+
+            return   
+
+        }else{
+            answerHelp++
+            const answer = document.createElement('div')
+            answer.innerHTML = `Я не знаю такой команды :(`
+            answer.classList.add('bot-massage')
+            bot_content.appendChild(answer)
+            bot_input.value = ""
             
+            return   
+
         }
 
     }
+
 }
 bot_content.scrollTop = bot_content.scrollHeight;
 bot_input.addEventListener('keydown', function(event) {
