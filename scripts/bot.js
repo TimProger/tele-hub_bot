@@ -4,8 +4,8 @@ const bot_input = document.querySelector(".bot-input")
 const bot_btn = document.querySelector(".bot-btn")
 const bot_content = document.querySelector(".bot-content")
 const bot_close = document.querySelector('.close-bot')
-
 function enterMassage(evt){
+    let answerHelp = 0
     let massage = document.createElement('div')
     if(bot_input.value == ""){
         return false
@@ -13,8 +13,26 @@ function enterMassage(evt){
     massage.innerHTML = `${bot_input.value}`
     massage.classList.add('bot-massage')
     massage.style.float = 'right'
+    massage.style.borderBottomRightRadius = '0px'
+    massage.style.borderBottomLeftRadius = '12px'
     bot_content.appendChild(massage)
     bot_input.value = ""
+        if(massage.indexOf("Помощь")){
+            answerHelp++
+            const answer = document.createElement('div')
+            answer.innerHTML = `Задавайте вопрос и мы на него ответим!`
+            answer.classList.add('bot-massage')
+            bot_content.appendChild(answer)
+            
+        }else if(massage.indexOf("Ы")){
+            answerHelp++
+            const answer = document.createElement('div')
+            answer.innerHTML = `ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ`
+            answer.classList.add('bot-massage')
+            bot_content.appendChild(answer)
+            
+        }
+
     }
 }
 bot_content.scrollTop = bot_content.scrollHeight;
@@ -39,3 +57,4 @@ bot_show.addEventListener('click', function(evt){
 
 })
 bot_btn.addEventListener('click', enterMassage)
+
