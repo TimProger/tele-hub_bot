@@ -58,10 +58,10 @@ bot_input.addEventListener('keydown', function(event) {
        enterMassage()
     }
  });
-const forShowTimeoutClose= () => { bot_show.style.right = '120px'}
+const forShowTimeoutClose= () => { bot_show.style.right = '100px'}
 const forShowTimeoutShow= () => { bot_form.style.bottom = '0px'}
 bot_close.addEventListener('click', function(evt){
-    bot_form.style.bottom = '-420px'
+    bot_form.style.bottom = '-480px'
     setTimeout(forShowTimeoutClose, 500)
 
 })
