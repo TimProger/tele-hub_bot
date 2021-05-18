@@ -23,6 +23,7 @@ function enterMassage(evt){
             answer.classList.add('bot-massage')
             bot_content.appendChild(answer)
             bot_input.value = ""
+            bot_content.scrollTo(0, bot_content.scrollHeight)
 
             return
 
@@ -33,7 +34,7 @@ function enterMassage(evt){
             answer.classList.add('bot-massage')
             bot_content.appendChild(answer)
             bot_input.value = ""
-
+            bot_content.scrollTo(0, bot_content.scrollHeight)
             return   
 
         }else{
@@ -43,6 +44,7 @@ function enterMassage(evt){
             answer.classList.add('bot-massage')
             bot_content.appendChild(answer)
             bot_input.value = ""
+            bot_content.scrollTo(0, bot_content.scrollHeight)
             
             return   
 
@@ -51,7 +53,6 @@ function enterMassage(evt){
     }
 
 }
-bot_content.scrollTop = bot_content.scrollHeight;
 bot_input.addEventListener('keydown', function(event) {
     if(event.keyCode == 13) {
        event.preventDefault();
