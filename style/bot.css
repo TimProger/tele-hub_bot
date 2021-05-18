@@ -69,7 +69,7 @@
 ::-webkit-scrollbar{
     display: none;
 }
-.bot-massage{
+.bot-message{
     height: auto;
     word-wrap: break-word;
     float: left;

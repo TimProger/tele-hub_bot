@@ -4,59 +4,75 @@ const bot_input = document.querySelector(".bot-input")
 const bot_btn = document.querySelector(".bot-btn")
 const bot_content = document.querySelector(".bot-content")
 const bot_close = document.querySelector('.close-bot')
-function enterMassage(evt){
+function enterMessage(evt){
     let answerHelp = 0
-    let massage = document.createElement('div')
+    let message = document.createElement('div')
     if(bot_input.value == ""){
         return false
     }else{
-    massage.innerHTML = `${bot_input.value}`
-    massage.classList.add('bot-massage')
-    massage.style.float = 'right'
-    massage.style.borderBottomRightRadius = '0px'
-    massage.style.borderBottomLeftRadius = '12px'
-    bot_content.appendChild(massage)
-        if(massage.innerHTML == `1`){
-            answerHelp++
-            const answer = document.createElement('div')
+    message.innerHTML = `${bot_input.value}`
+    message.classList.add('bot-message')
+    message.style.float = 'right'
+    message.style.borderBottomRightRadius = '0px'
+    message.style.borderBottomLeftRadius = '12px'
+    bot_content.appendChild(message)
+    bot_content.scrollTo(0, bot_content.scrollHeight)
+    bot_input.value = ""
+
+        setTimeout(function(){
+        //     if(message.innerHTML == `1`){
+        //     answerHelp++
+        //     const answer = document.createElement('div')
+        //     answer.innerHTML = `Задавайте вопрос и мы на него ответим!`
+        //     answer.classList.add('bot-message')
+        //     bot_content.appendChild(answer)
+        //     bot_content.scrollTo(0, bot_content.scrollHeight)
+        //     return
+        // }else if(message.innerHTML == `2`){
+        //     answerHelp++
+        //     const answer = document.createElement('div')
+        //     answer.innerHTML = `Мы не поможем вам`
+        //     answer.classList.add('bot-message')
+        //     bot_content.appendChild(answer)
+        //     bot_content.scrollTo(0, bot_content.scrollHeight)
+        //     return
+        // }else{
+        //     answerHelp++
+        //     const answer = document.createElement('div')
+        //     answer.innerHTML = `Я не знаю такой команды :(`
+        //     answer.classList.add('bot-message')
+        //     bot_content.appendChild(answer)
+        //     bot_content.scrollTo(0, bot_content.scrollHeight)
+        //     return
+        // }
+        const answer = document.createElement('div')
+        switch(message.innerHTML){
+        case `1`:
             answer.innerHTML = `Задавайте вопрос и мы на него ответим!`
-            answer.classList.add('bot-massage')
+            answer.classList.add('bot-message')
             bot_content.appendChild(answer)
-            bot_input.value = ""
             bot_content.scrollTo(0, bot_content.scrollHeight)
-
             return
-
-        }else if(massage.innerHTML == `2`){
-            answerHelp++
-            const answer = document.createElement('div')
+        case `2`:
             answer.innerHTML = `Мы не поможем вам`
-            answer.classList.add('bot-massage')
+            answer.classList.add('bot-message')
             bot_content.appendChild(answer)
-            bot_input.value = ""
             bot_content.scrollTo(0, bot_content.scrollHeight)
-            return   
-
-        }else{
-            answerHelp++
-            const answer = document.createElement('div')
+            return
+        default: 
             answer.innerHTML = `Я не знаю такой команды :(`
-            answer.classList.add('bot-massage')
+            answer.classList.add('bot-message')
             bot_content.appendChild(answer)
-            bot_input.value = ""
             bot_content.scrollTo(0, bot_content.scrollHeight)
-            
-            return   
-
+            return
         }
-
+    }, 200)
     }
-
 }
 bot_input.addEventListener('keydown', function(event) {
     if(event.keyCode == 13) {
        event.preventDefault();
-       enterMassage()
+       enterMessage()
     }
  });
 const forShowTimeoutClose= () => { bot_show.style.right = '100px'}
@@ -73,5 +89,5 @@ bot_show.addEventListener('click', function(evt){
 
 
 })
-bot_btn.addEventListener('click', enterMassage)
+bot_btn.addEventListener('click', enterMessage)
 
